@@ -1,0 +1,25 @@
+--Start with database setup and table creation
+
+1.create MySQL database container 
+
+Example: sudo docker run -d -e MYSQL_ROOT_PASSWORD=Password -e MYSQL_PASSWORD=Password -e MYSQL_USER=Sanidhya -v /home/Sanidhya/mysql-data:/var/lib/mysql MySQL
+
+2.exec container create database and table using 
+ Example: CREATE TABLE Courses ( CourseId INT AUTO_INCREMENT PRIMARY KEY, CourseName VARCHAR(255) NOT NULL, InstructorName VARCHAR(255) NOT NULL, Lessons JSON NOT NULL  );
+
+3. record database name user and pass and server ip (use docker inspect)
+
+
+-- Backend Setup
+
+1.clone repository
+2. make configuration of database(connection string) in appsettings.json
+3.Create multi stage Dockerfile use CMD ["dotnet", "ElearnBackend.dll", "--urls=http://0.0.0.0:8080"] at last
+4 if you want to verify endpoints  use Thunder CLient extension  verify get endpoint Example: http://74.225.185.16:8080/api/Course
+
+
+--Frontend Setup
+
+1.clone repository
+2. update api endpoints as directed
+3.Make multistage docker file
