@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: net-fire
+  labels:
+    app: netflix-firefox
+    
+spec: 
+  containers:
+    - image: linuxserver/firefox
+      name: firefoxcon
+      ports:
+        - containerPort: 3000
+          name: applicationport
+
+    - image: devopsinsiders/netflix-clone
+      name: netflixcon
+      ports:
+        - containerPort: 80
+          name: httpport
+    
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-fire
+  
+spec: 
+  containers:
+    - image: linuxserver/firefox
+      name: firefoxcon
+      ports:
+        - containerPort: 3000
+          name: applicationport
+
+    - image: nginx
+      name: netflixcon
+      ports:
+        - containerPort: 80
+          name: httpport
+    
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todo-fire
+
+spec: 
+  containers:
+    - image: linuxserver/firefox
+      name: firefoxcon
+      ports:
+        - containerPort: 3000
+          name: applicationport
+
+    - image: devopsinsiders/todoui
+      name: netflixcon
+      ports:
+        - containerPort: 80
+          name: httpport
+
