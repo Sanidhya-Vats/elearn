@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "mypod"
+spec:
+  containers:
+  - name: mycontainer
+    image: nginx
+    ports:
+    - containerPort:  80
+      name:  http
+    volumeMounts:
+      - mountPath: /usr/share/nginx/html/
+        name: myemptydir
+  volumes:
+    - name: myvolume
+      hostPath:
+        path: /home/nginx
+        type: DirectoryOrCreate 
+    - name: myemptydir
+      emptyDir:
+        medium: Memory
+        sizeLimit: 500Mi

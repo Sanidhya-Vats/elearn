@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypv
+spec:
+  azureDisk:
+    diskURI: "/subscriptions/a4b25e75-be62-4cb6-bcb5-48e2492054ab/resourcegroups/my-resource-group/providers/Microsoft.Compute/disks/pv-disk"
+    diskName: pv-disk
+    cachingMode: ReadWrite
+    kind: Managed
+  accessModes:
+    - ReadWriteOncePod
+  capacity:
+    storage: 2Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: dhondhu
