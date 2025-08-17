@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc-file
+
+spec:
+  storageClassName: file
+  selector:
+    matchLabels:
+      storage: pv-file
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi

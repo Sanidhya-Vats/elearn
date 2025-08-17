@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypv-file
+  labels:
+    storage: pv-file
+spec:
+  azureFile:
+    shareName: pv-share
+    secretName: file-secret
+  
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 1Ti
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: file

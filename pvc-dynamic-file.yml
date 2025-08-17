@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mydynamicpvc1
+  namespace: default
+  labels:
+    app: mydynamicpvc1
+spec:
+  storageClassName: azurefile
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 4Gi
