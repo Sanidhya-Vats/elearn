@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "mypod"
+  labels:
+    app: "netflix"
+    env: dev
+spec:
+  containers:
+  - name: mypod
+    image: devopsinsiders/netflix-clone
+   
+    ports:
+    - containerPort:  80
+      name:  http
+   
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "mypod1"
+  labels:
+    app: "netflix"
+    env: dev
+spec:
+  containers:
+  - name: mypod
+    image: devopsinsiders/netflix-clone
+   
+    ports:
+    - containerPort:  80
+      name:  http
+   
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "mypod2"
+  labels:
+    app: "netflix"
+    env: dev
+spec:
+  containers:
+  - name: mypod
+    image: devopsinsiders/netflix-clone
+   
+    ports:
+    - containerPort:  80
+      name:  http

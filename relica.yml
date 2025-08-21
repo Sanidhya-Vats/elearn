@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: netflix-replica
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - netflix
+    # matchLabels:
+    #   app: netflix      
+  template:
+    metadata:
+      name: netflix
+      labels:
+        app: netflix
+    spec:
+      containers:
+        - name: netflixcon
+          image: devopsinsiders/todoui
+          ports:
+            - containerPort: 80
+              name: http
+      volumes:
+        - name: vol
+          emptyDir: 
+             sizeLimit: 20Mi
